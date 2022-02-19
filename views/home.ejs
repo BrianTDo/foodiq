@@ -16,16 +16,28 @@
   </head>
   <body>
     <!-- Navigation -->
-    <%- include ('./partials/header.ejs') %>
+    <% /* %> <%- include ('./partials/header.ejs') %> <% */ %> 
     <!-- Hero Section -->
     <main>
       <div class="container">
         <div class="row">
-          <div class="col-md-7">
-            <img src="img/pic1.svg" alt="build website" class="img-fluid" />
+          <div class="col-md-6">
+            <h1>Hello <%= user %>!</h1>
           </div>
-          <div class="col-md-5">
-            <h2>Hello</h2>
+        </div>
+        <div class="row">
+          <a class="btn btn-primary" href="./restaurants/create.ejs">Create Project</a>
+        </div>
+        <div class="row">
+          <h2>My Projects</h2>
+          <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+              The current link item
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">A second link item</a>
+            <a href="#" class="list-group-item list-group-item-action">A third link item</a>
+            <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
+            <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">A disabled link item</a>
           </div>
         </div>
       </div>

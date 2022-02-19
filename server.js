@@ -12,6 +12,7 @@ const session = require("express-session");
 const methodOverride = require("method-override");
 
 const indexRouter = require("./routes/index");
+const restaurantsRouter = require("./routes/restaurants");
 
 const initializePassport = require("./passport-config");
 initializePassport(
@@ -43,6 +44,10 @@ const db = mongoose.connection;
 db.on("error", (error) => console.error(error));
 db.once("open", () => console.log("Connected to Mongoose"));
 
+app.get("/restaurants/create", (req, res) => {
+  res.render("create.ejs");
+});
+
 app.get("/", checkNotAuthenticated, (req, res) => {
   res.render("index.ejs", {
     isLoggedIn: req.isLogged,
@@ -51,7 +56,7 @@ app.get("/", checkNotAuthenticated, (req, res) => {
 
 app.get("/home", checkAuthenticated, (req, res) => {
   res.render("home.ejs", {
-    isLoggedIn: req.isLogged,
+    isLoggedIn: req.isLogged, user: req.user.name
   });
 });
 
