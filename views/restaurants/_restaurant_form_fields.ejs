@@ -64,9 +64,12 @@
     id="inputPhone"
     class="form-control"
     name="phone"
-    placeholder="(123) 456-7890"
-    pattern="\(\[0-9]{3}\(\ [0-9]{3}-[0-9]{4}"
+    placeholder="1(123) 456-7890"
+    pattern="[0-9]{1}\([0-9]{3}\) [0-9]{3}-[0-9]{4}"
     value="<%= restaurant.phone == null ? '' : restaurant.phone %>"
     required
   />
+  <div id="phoneHelp" class="form-text">
+    Enter phone number with special characters and space
+  </div>
 </div>

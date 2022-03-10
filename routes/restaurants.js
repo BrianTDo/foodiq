@@ -58,7 +58,7 @@ router.post("/create", async (req, res) => {
     city: req.body.city,
     state: req.body.state,
     zip: req.body.zip,
-    phone: req.body.phone,
+    phone: req.body.phone
   });
   try {
     const newRestaurant = await restaurant.save();
