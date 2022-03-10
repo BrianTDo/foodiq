@@ -1,0 +1,58 @@
+<main>
+  <div class="container mt-5 text-dark">
+    <div class="row mt-5">
+      <h1 class="text-center"><%= restaurant.restName %></h1>
+      <h5 class="text-center">
+        <%= restaurant.address%> <%= restaurant.city%>, <%= restaurant.state%>
+        <%= restaurant.zip%>
+      </h5>
+      <h5 class="text-center"><%= restaurant.phone%></h5>
+    </div>
+    <div class="row mt-3">
+      <ol class="list-group list-group-numbered overflow-auto">
+        <div class="list-group-item">
+          <h5 class="text-center">Queue</h5>
+        </div>
+        <% if (restaurant.customers == "") { %>
+        <div class="list-group-item">
+          <h6 class="text-center">No Parties</h6>
+        </div>
+        <% } else { %> <% restaurant.customers.forEach(customer => { %>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col">
+              <h5><%= customer.name %></h5>
+            </div>
+            <div class="col">Party of <%= customer.party %></div>
+            <% if (isOwner) { %>
+            <div class="col-3 mb-3">
+              <form action="<%= restaurant.id %>/accept" method="POST">
+                <input type="hidden" value="<%= customer.id %>" name="id" />
+                <button class="btn btn-outline-success btn-lg" type="submit">
+                  <i class="bi bi-check-lg"></i>
+                </button>
+              </form>
+            </div>
+            <div class="col-3 mb-3">
+              <form action="<%= restaurant.id %>/decline" method="POST">
+                <input type="hidden" value="<%= customer.id %>" name="id" />
+                <button class="btn btn-outline-danger btn-lg" type="submit">
+                  <i class="bi bi-x-lg"></i>
+                </button>
+              </form>
+            </div>
+            <% } %>
+          </div>
+        </li>
+        <% }) }%> 
+      </ol>
+    </div>
+    <div class="row mt-3">
+      <a
+        href="/restaurants/<%= restaurant.id %>/reserve"
+        class="btn btn-outline-primary btn-lg"
+        >Reserve</a
+      >
+    </div>
+  </div>
+</main>

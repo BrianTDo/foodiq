@@ -1,0 +1,49 @@
+<main>
+  <div class="container mt-5">
+    <div class="row">
+      <h3 class="text-center">Create Reservation</h3>
+    </div>
+    <form action="reserve" method="POST">
+      <div class="row mt-3">
+        <div class="col">
+          <label for="name" class="form-label">Name</label>
+          <input
+            type="text"
+            id="name"
+            class="form-control"
+            name="name"
+            placeholder="John"
+            required
+          />
+        </div>
+        <div class="col">
+          <label for="inputPhone" class="form-label">Phone Number</label>
+          <input
+            type="tel"
+            id="inputPhone"
+            class="form-control"
+            name="phone"
+            placeholder="1(234)567-8901"
+            pattern="[0-9]{11}"
+            required
+          />
+        </div>
+        <div class="col">
+          <label for="party" class="form-label">Party</label>
+          <select
+            class="form-select"
+            id="party"
+            type="text"
+            name="party"
+            required
+          >
+            <%- include ('_partysize.ejs') %>
+          </select>
+        </div>
+        <button class="btn btn-outline-primary mt-3" type="submit">
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</main>

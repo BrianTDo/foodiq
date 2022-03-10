@@ -1,0 +1,21 @@
+<% restaurants.forEach(restaurant => { %>
+  <li class="list-group-item bg-altlight">
+    <div class="row my-2">
+      <div class="col-6">
+        <h4><%= restaurant.restName %></h4>
+        <small class="text-muted"><%= restaurant.address %> <%= restaurant.city %>, <%= restaurant.state %> <%= restaurant.zip %></small>
+      </div>
+      <div class="col-2">
+        <a href="/restaurants/<%= restaurant.id %>" class="btn btn-outline-primary btn-lg"><i class="bi bi-eye"></i></a>
+      </div>
+      <div class="col-2">
+        <a href="/restaurants/<%= restaurant.id %>/edit" class="btn btn-outline-success btn-lg"><i class="bi bi-pencil"></i></a>
+      </div>
+      <div class="col-2">
+        <form action="<%= restaurant.id %>?_method=DELETE" method="POST">
+          <button type="submit" class="btn btn-outline-danger btn-lg"><i class="bi bi-trash"></i></button>
+        </form>
+      </div>
+    </div>
+  </li>
+<% }) %>

@@ -1,11 +1,11 @@
 <header>
   <nav
-    class="navbar fixed-top shadow navbar-expand-md navbar-dark"
-    style="background-color: #252831"
+    class="navbar navbar-expand-md navbar-light border-bottom border-altlight"
+    
   >
     <div class="container">
-      <a class="navbar-brand" href="/">
-        <img src="/img/foodiq logo w.png" alt="" width="30" height="30" />
+      <a class="navbar-brand text-success" href="/">
+        <img src="/img/foodiq logo orange.png" alt="" width="30" height="30" />
         foodiq</a
       >
       <button
@@ -22,23 +22,23 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ms-auto mt-2 mt-lg-0 gap-3 text-center">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
+            <a class="nav-link active text-success" aria-current="page" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link text-success" href="">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link text-success" href="">Contact</a>
           </li>
           <li class="nav-item">
             <% if(isLoggedIn){ %>
-            <form action="/logout?_method=DELETE" method="POST">
+            <form action="../../account/logout?_method=DELETE" method="POST">
               <button class="btn btn-outline-danger" type="submit">
                 Logout
               </button>
             </form>
             <% } else{ %>
-            <a class="btn btn-outline-primary" href="/login">Login</a>
+            <a class="btn btn-outline-primary" href="../../account/login">Login</a>
             <% } %>
           </li>
         </ul>

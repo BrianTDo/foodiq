@@ -1,8 +1,15 @@
 const express = require("express");
 const router = express.Router();
+const passport = require("passport");
+const isNotAuth = require("./auth").isNotAuth;
 
-router.get("/", (req, res) => {
-  res.render("index.ejs");
+//Passport middleware
+router.use(passport.session());
+
+router.get("/", isNotAuth, (req, res) => {
+  res.render("index.ejs", {
+    isLoggedIn: req.isLogged,
+  });
 });
 
 module.exports = router;
